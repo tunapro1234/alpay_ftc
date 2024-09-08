@@ -24,6 +24,8 @@ RUN apt-get update \
 # Other Tools
 RUN apt-get update \
 	&& apt-get install -y apt-utils \
+	clang \
+	libc6-dev \
 	vim \
 	git \
 	nmap \
@@ -37,6 +39,19 @@ RUN apt-get update \
 	python3-pip \
 	python3-smbus
 
+# Install Rust
+# RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+# Ensure Rust binaries are available in the PATH
+# ENV PATH="/root/.cargo/bin:${PATH}"
+
+# Install Go Lang
+RUN cd /root/ \
+	&& wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz \
+	&& rm -rf /usr/local/go /usr/bin/go \
+	&& tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz \
+	&& export PATH=$PATH:/usr/local/go/bin
+	
 # Clean up (For release image)
 # RUN rm -rf /var/lib/apt/lists/* \
 
@@ -65,13 +80,16 @@ RUN usermod -aG dialout ${USERNAME}
 USER ros
 
 # Setup working directory
-WORKDIR /home/$USERNAME/dev_ws/src
+WORKDIR /home/$USERNAME/dev_ws
 
 # Copy ROS packages from your local 'src' to the container
-COPY dev_ws/src /home/$USERNAME/dev_ws/src
+# COPY dev_ws/src /home/$USERNAME/dev_ws/src
 
 # RUN /bin/bash -c '. /opt/ros/humble/setup.sh; colcon build'
 # RUN echo "source /home/$USERNAME/dev_ws/install/setup.bash" >> /home/$USERNAME/.bashrc
+
+RUN echo "export PATH=$PATH:/usr/local/go/bin" >> /home/$USERNAME/.bashrc
+RUN echo "export LIBCLANG_PATH=/usr/lib/llvm-12/lib" >> /home/$USERNAME/.bashrc
 RUN echo "source /opt/ros/humble/setup.bash" >> /home/$USERNAME/.bashrc
 RUN echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> /home/$USERNAME/.bashrc
 RUN echo "set -o vi" >> /home/ros/.bashrc
