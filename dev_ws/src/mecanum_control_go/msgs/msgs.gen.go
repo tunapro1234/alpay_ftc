@@ -4,5 +4,6 @@ package msgs
 
 import (
 	_ "mecanum_control_go/msgs/builtin_interfaces/msg" //
+	_ "mecanum_control_go/msgs/geometry_msgs/msg" //
 	_ "mecanum_control_go/msgs/std_msgs/msg" //
 )

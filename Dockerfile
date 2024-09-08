@@ -51,6 +51,8 @@ RUN cd /root/ \
 	&& rm -rf /usr/local/go /usr/bin/go \
 	&& tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz \
 	&& export PATH=$PATH:/usr/local/go/bin
+
+# go get github.com/tiiuae/rclgo/cmd/rclgo-gen/cmd@v0.0.0-20240131135202-56b24e11219b
 	
 # Clean up (For release image)
 # RUN rm -rf /var/lib/apt/lists/* \
