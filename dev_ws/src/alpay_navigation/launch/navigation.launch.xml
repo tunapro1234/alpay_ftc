@@ -1,0 +1,12 @@
+<launch>
+    <let name="nav2_params" value="$(find-pkg-share cleaner_navigation)/param/nav2_params.yaml"/>
+    <let name="map_path" value="/home/ros/saved_map.yaml"/>
+
+    <include file="$(find-pkg-share cleaner_navigation)/launch/bringup_launch.py">
+        <arg name="use_sim_time" value="False"/>
+        <arg name="slam" value="False"/>
+        <arg name="map" value="$(var map_path)"/>
+        <arg name="params_file" value="$(var nav2_params)"/>
+    </include>
+
+</launch>
