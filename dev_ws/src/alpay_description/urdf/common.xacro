@@ -8,7 +8,6 @@
     <material name="black"> <color rgba="0 0 0 1"/> </material>
     <material name="white"> <color rgba="1 1 1 1"/> </material>
 
-
     <xacro:macro name="box_inertia" params="m x y z xyz rpy">
         <inertial>
             <origin xyz="${xyz}" rpy="${rpy}"/>
@@ -19,7 +18,6 @@
         </inertial>
     </xacro:macro>
 
-
     <xacro:macro name="cylinder_inertia" params="m r l xyz rpy">
         <inertial>
             <origin xyz="${xyz}" rpy="${rpy}"/>
@@ -29,6 +27,5 @@
                       izz="${m*r*r/2}"/>
         </inertial>
     </xacro:macro>
-
 
 </robot>
