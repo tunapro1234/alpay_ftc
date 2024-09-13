@@ -1,0 +1,78 @@
+# this is the config file to use to load the controllers for the alpay robot
+# hardware abstraction layers are loaded in the urdf files
+
+controller_manager:
+  ros__parameters:
+    update_rate: 10  # Hz
+
+    mecanum_cont:
+      type: mecanum_drive_controller/MecanumDriveController
+
+    omni_odom:
+      type: mecanum_drive_controller/MecanumDriveController
+
+  
+omni_odom:
+  ros__parameters:
+    publish_rate: 50.0
+
+    enable_odom_tf: true
+    odom_frame_id: odom
+    base_frame_id: base_footprint
+
+
+mecanum_cont:
+  ros__parameters:
+    publish_rate: 50.0
+
+    left_front_wheel_name: "left_front_wheel_joint"
+    left_rear_wheel_name: "left_rear_wheel_joint"
+    right_front_wheel_name: "right_front_wheel_joint"
+    right_rear_wheel_name: "right_rear_wheel_joint"
+    
+    wheel_separation_leftright: 0.50
+    wheel_separation_frontback: 0.50
+    wheel_radius: 0.125
+
+    # Disable if using NFR Omni Odom wheels
+    enable_odom_tf: false
+    odom_frame_id: odom
+    base_frame_id: base_footprint
+
+    open_loop: false
+
+    cmd_vel_timeout: 0.5
+    publish_limited_velocity: true
+    use_stamped_vel: false
+
+    # Velocity and acceleration limits
+    # Whenever a min_* is unspecified, default to -max_*
+    linear.x.has_velocity_limits: true
+    linear.x.has_acceleration_limits: true
+    linear.x.has_jerk_limits: false
+    linear.x.max_velocity: 0.4
+    linear.x.min_velocity: -0.4
+    linear.x.max_acceleration: 0.3
+    linear.x.max_jerk: 0.0
+    linear.x.min_jerk: 0.0
+
+    linear.y.has_velocity_limits: true
+    linear.y.has_acceleration_limits: true
+    linear.y.has_jerk_limits: false
+    linear.y.max_velocity: 0.4
+    linear.y.min_velocity: -0.4
+    linear.y.max_acceleration: 0.3
+    linear.y.max_jerk: 0.0
+    linear.y.min_jerk: 0.0
+
+    angular.z.has_velocity_limits: true
+    angular.z.has_acceleration_limits: true
+    angular.z.has_jerk_limits: false
+    angular.z.max_velocity: 0.5
+    angular.z.min_velocity: -0.5
+    angular.z.max_acceleration: 0.8
+    angular.z.min_acceleration: -0.8
+    angular.z.max_jerk: 0.0
+    angular.z.min_jerk: 0.0
+
+

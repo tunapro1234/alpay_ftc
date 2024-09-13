@@ -1,3 +1,6 @@
+# this is the config file to use to load the controllers for the alpay robot
+# hardware abstraction layers are loaded in the urdf files
+
 controller_manager:
   ros__parameters:
     update_rate: 10  # Hz
@@ -7,7 +10,6 @@ controller_manager:
 
     diff_cont:
       type: diff_drive_controller/DiffDriveController
-
 
 diff_cont:
   ros__parameters:

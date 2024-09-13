@@ -24,11 +24,27 @@
       <state_interface name="velocity"/>
       <state_interface name="position"/>
     </joint>
+
+    <joint name="left_omni_joint">
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+
+    <joint name="right_omni_joint">
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+
+    <joint name="rear_omni_joint">
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+
   </ros2_control>
 
   <gazebo>
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-      <parameters>$(find cleaner_description)/param/gultepe_controllers1_gazebo.yaml</parameters>
+      <parameters>$(find alpay_description)/param/alpay_controllers_gazebo.yaml</parameters>
     </plugin>
   </gazebo>
 

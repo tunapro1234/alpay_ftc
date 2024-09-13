@@ -9,8 +9,8 @@ import os
 
 
 def generate_launch_description():
-    urdf_path = os.path.join(get_package_share_path("cleaner_description"), "urdf", "cleaner_gazebo.urdf.xacro")
-    rviz_config_file = os.path.join(get_package_share_path("cleaner_description"), "rviz", "cleaner_default.rviz")
+    urdf_path = os.path.join(get_package_share_path("alpay_description"), "urdf", "alpay_gazebo.urdf.xacro")
+    rviz_config_file = os.path.join(get_package_share_path("alpay_description"), "rviz", "alpay_default.rviz")
 
     robot_description = ParameterValue(Command(["xacro ", urdf_path]), value_type=str)
 
