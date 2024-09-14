@@ -1,17 +1,17 @@
 <launch>
-    <let name="urdf_file" value="$(find-pkg-share cleaner_description)/urdf/cleaner.urdf.xacro"/>
+    <let name="urdf_file" value="$(find-pkg-share mecanum_description)/urdf/mecanum.urdf.xacro"/>
     <let name="robot_description" value="$(command 'xacro $(var urdf_file)')"/>
 
-    <include file="$(find-pkg-share cleaner_bringup)/launch/sensors.launch.xml"/>
+    <include file="$(find-pkg-share mecanum_bringup)/launch/sensors.launch.xml"/>
 
     <node pkg="robot_state_publisher" exec="robot_state_publisher">
         <param name="robot_description" value="$(var robot_description)"/>
     </node>
 
-    <include file="$(find-pkg-share cleaner_bringup)/launch/controller_manager.launch.py"/>
+    <include file="$(find-pkg-share mecanum_bringup)/launch/controller_manager.launch.py"/>
 
-    <include file="$(find-pkg-share cleaner_navigation)/launch/navigation.launch.xml"/>
+    <include file="$(find-pkg-share mecanum_navigation)/launch/navigation.launch.xml"/>
 
-    <include file="$(find-pkg-share cleaner_bringup)/launch/linear_sweep.launch.xml"/>
+    <include file="$(find-pkg-share mecanum_bringup)/launch/linear_sweep.launch.xml"/>
 
 </launch>
