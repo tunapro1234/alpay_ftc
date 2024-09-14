@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="nfr_structure" params="link_name step xyz rpy">
+        <link name="${link_name}">
+            <collision>
+                <geometry>
+                    <box size="${step*0.05/2} 0.05 0.05"/>
+                </geometry>
+                <origin xyz="${xyz}" rpy="${rpy}"/>
+            </collision>
+
+            <visual>
+                <material name="_nfr__gray"/>
+                <geometry>
+                    <box size="${step*0.05/2} 0.05 0.05"/>
+                </geometry>
+                <origin xyz="${xyz}" rpy="${rpy}"/>
+            </visual>
+            
+            <xacro:_nfr__struct_inertia step="${step}" xyz="${xyz}" rpy="${rpy}"/>
+            <gazebo>
+                <material>Gazebo/Gray</material>
+            </gazebo>
+        </link>
+    </xacro:macro>
+
+</robot>

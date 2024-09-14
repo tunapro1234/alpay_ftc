@@ -8,21 +8,21 @@
   <xacro:property name="structure_width" value="0.05"/>
   <xacro:property name="structure_step_width" value="0.025"/>
 
-  <xacro:structure link_name="base_structure" step="12" xyz="0 0 0" rpy="3.14 0 1.57"/>
+  <xacro:nfr_structure link_name="base_structure" step="12" xyz="0 0 0" rpy="3.14 0 1.57"/>
   <joint name="base_footprint_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_structure"/>
     <origin xyz="0 0 ${wheel_diameter/2}" rpy="0 0 0"/>
   </joint>
 
-  <xacro:structure link_name="left_structure" step="16" xyz="0 0 0" rpy="3.14 0 0"/>
+  <xacro:nfr_structure link_name="left_structure" step="16" xyz="0 0 0" rpy="3.14 0 0"/>
   <joint name="left_structure_joint" type="fixed">
     <parent link="base_structure"/>
     <child link="left_structure"/>
     <origin xyz="0 ${structure_step_width*6+structure_width/2} 0" rpy="0 0 0"/>
   </joint>
   
-  <xacro:structure link_name="right_structure" step="16" xyz="0 0 0" rpy="3.14 0 0"/>
+  <xacro:nfr_structure link_name="right_structure" step="16" xyz="0 0 0" rpy="3.14 0 0"/>
   <joint name="right_structure_joint" type="fixed">
     <parent link="base_structure"/>
     <child link="right_structure"/>
@@ -35,7 +35,7 @@
     <parent link="left_structure"/>
     <child link="front_left_wheel"/>
     <origin xyz="${structure_step_width*6} ${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
-    <axis xyz="0 0 1" />
+    <axis xyz="0 0 1"/>
   </joint>
 
   <xacro:traction_wheel link_name="front_right_wheel" xyz="0 0 0" rpy="0 0 0"/>
@@ -43,7 +43,7 @@
     <parent link="right_structure"/>
     <child link="front_right_wheel"/>
     <origin xyz="${structure_step_width*6} -${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
-    <axis xyz="0 0 1" />
+    <axis xyz="0 0 1"/>
   </joint>
 
 
@@ -59,6 +59,13 @@
     <parent link="right_structure"/>
     <child link="rear_right_wheel"/>
     <origin xyz="-${structure_step_width*6} -${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
+  </joint>
+
+  <xacro:nfr_mecanum_wheel_l link_name="mecanum_test" xyz="0 0 0" rpy="0 0 0"/>
+  <joint name="mecanum_test_joint" type="fixed">
+    <parent link="base_structure"/>
+    <child link="mecanum_test"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
   </joint>
 
 

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <material name="_nfr__gray"> <color rgba="0.4 0.4 0.4 1"/> </material>
+    <material name="_nfr__black"> <color rgba="0 0 0 1"/> </material>
+    <material name="_nfr__blue"> <color rgba="0 0 0.9 1"/> </material>
+
+    <xacro:macro name="_nfr__u_rect_tube_inertia" params="m t x y z xyz rpy">
+        <!-- profilin uzun kısmı için x ekseni kullanılıyor -->
+        <!-- boş olan taraf üste (+z) bakıyor -->
+        <inertial>
+            <origin xyz="${xyz}" rpy="${rpy}"/>
+            <mass value="${m}"/>
+            <inertia ixx="${m*((y*y+z*z)/12-((y-t)*(y-t)*z*z)/(12*(1-(t*y*z)/(x*y*z))))}" 
+                iyy="${m*((x*x+z*z)/12-(x*x*(z-t)*(z-t))/(12*(1-(t*x*z)/(x*y*z))))}" 
+                izz="${m*((x*x+y*y)/12-(x*x*(y-t)*(y-t))/(12*(1-(t*x*y)/(x*y*z))))}"
+                ixy="0" iyz="0" ixz="0"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="_nfr__struct_inertia" params="step xyz rpy">
+        <!-- structureın uzun kısmı için x ekseni kullanılıyor -->
+        <!-- boş olan taraf üste (+z) bakıyor -->
+        <xacro:_nfr__u_rect_tube_inertia m="${step*0.016}" t="0.002" x="${step*0.025}" 
+                                   y="0.05" z="0.05" xyz="${xyz}" rpy="${rpy}"/>
+    </xacro:macro>
+
+    <xacro:macro name="_nfr__cylinder_inertia" params="m r l xyz rpy">
+        <inertial>
+            <origin xyz="${xyz}" rpy="${rpy}"/>
+            <mass value="${m}"/>
+            <inertia ixx="${m*(3*r*r+l*l)/12}" ixy="0" ixz="0"
+                      iyy="${m*(3*r*r+l*l)/12}" iyz="0"
+                      izz="${m*r*r/2}"/>
+        </inertial>
+    </xacro:macro>
+
+</robot>
