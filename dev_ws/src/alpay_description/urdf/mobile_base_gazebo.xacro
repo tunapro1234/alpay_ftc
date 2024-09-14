@@ -61,10 +61,10 @@
     <origin xyz="-${structure_step_width*6} -${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
   </joint>
 
-  <xacro:nfr_mecanum_wheel_l link_name="mecanum_test" xyz="0 0 0" rpy="0 0 0"/>
+  <xacro:nfr_omni_wheel link_name="omni_test" xyz="0 0 0" rpy="0 0 0"/>
   <joint name="mecanum_test_joint" type="fixed">
     <parent link="base_structure"/>
-    <child link="mecanum_test"/>
+    <child link="omni_test"/>
     <origin xyz="0 0 0.3" rpy="0 0 0"/>
   </joint>
 

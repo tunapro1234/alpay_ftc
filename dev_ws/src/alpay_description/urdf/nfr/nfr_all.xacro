@@ -3,7 +3,9 @@
 
     <xacro:include filename="nfr_common.xacro"/>
     <xacro:include filename="nfr_frictionless_wheel.xacro"/>
-    <xacro:include filename="nfr_mecanum_wheel.xacro"/>
+    <xacro:include filename="nfr_mecanum_wheel_l.xacro"/>
+    <xacro:include filename="nfr_mecanum_wheel_r.xacro"/>
+    <xacro:include filename="nfr_omni_wheel.xacro"/>
     <xacro:include filename="nfr_structure.xacro"/>
     <xacro:include filename="nfr_traction_wheel.xacro"/>
 
