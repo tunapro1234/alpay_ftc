@@ -2,35 +2,35 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:property name="_nfr__trac_fric_mu" value="1"/>
-    <xacro:property name="_nfr__trac_fric_mu2" value="1"/>
-    <xacro:property name="_nfr__wheel_diam" value="0.1"/>
+    <xacro:property name="nfr_trac_fric_mu" value="1"/>
+    <xacro:property name="nfr_trac_fric_mu2" value="1"/>
+    <xacro:property name="nfr_wheel_diam" value="0.1"/>
 
     <xacro:macro name="traction_wheel" params="link_name xyz rpy">
         <link name="${link_name}">
             <visual>
                 <geometry>
-                    <cylinder radius="${_nfr__wheel_diam/2}" length="0.0375"/>
+                    <cylinder radius="${nfr_wheel_diam/2}" length="0.0375"/>
                 </geometry>
-                <material name="_nfr__gray"/>
+                <material name="nfr_gray"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${_nfr__wheel_diam/2}" length="0.0375"/>
+                    <cylinder radius="${nfr_wheel_diam/2}" length="0.0375"/>
                 </geometry>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </collision>
-            <xacro:_nfr__cylinder_inertia m="0.1" r="${_nfr__wheel_diam/2}" l="0.0375" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.1" r="${nfr_wheel_diam/2}" l="0.0375" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Gray</material>
-                <mu>${_nfr__trac_fric_mu}</mu>
-                <mu2>${_nfr__trac_fric_mu2}</mu2>
+                <mu>${nfr_trac_fric_mu}</mu>
+                <mu2>${nfr_trac_fric_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__trac_fric_mu}</mu>
-                            <mu2>${_nfr__trac_fric_mu2}</mu2>
+                            <mu>${nfr_trac_fric_mu}</mu>
+                            <mu2>${nfr_trac_fric_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>

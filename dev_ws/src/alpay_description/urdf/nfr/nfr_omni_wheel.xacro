@@ -2,8 +2,11 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:property name="_nfr__roller_friction_mu" value="1"/>
-    <xacro:property name="_nfr__roller_friction_mu2" value="1"/>
+    <xacro:property name="nfr_roller_friction_mu" value="1"/>
+    <xacro:property name="nfr_roller_friction_mu2" value="1"/>
+    <xacro:property name="nfr_roller_radius" value="0.007"/>
+    <xacro:property name="nfr_roller_sep_z" value="0.002"/>
+    <xacro:property name="nfr_roller_len" value="0.03"/>
 
     <xacro:macro name="nfr_omni_wheel" params="link_name xyz rpy">
         <link name="${link_name}">
@@ -11,7 +14,7 @@
                 <geometry>
                     <cylinder radius="0.035" length="0.03"/>
                 </geometry>
-                <material name="_nfr__black"/>
+                <material name="nfr_black"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
             <!-- not necessary, we are sorrounded by rollers anyway -->
@@ -21,7 +24,7 @@
                 </geometry>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </collision> -->
-            <xacro:_nfr__cylinder_inertia m="0.180" r="0.042" l="0.0375" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.180" r="0.042" l="0.0375" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Black</material>
             </gazebo>
@@ -30,21 +33,21 @@
         <link name="${link_name}_roller0">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -53,28 +56,28 @@
         <joint name="${link_name}_roller0_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller0"/>
-            <origin xyz="0.043 0 0" rpy="1.57 0 0"/>
+            <origin xyz="0.043 0 -${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 0"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller1">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -83,28 +86,28 @@
         <joint name="${link_name}_roller1_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller1"/>
-            <origin xyz="0.03723 0.0215 0" rpy="0.85 0 0.5234"/>
+            <origin xyz="0.03723 0.0215 ${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 0.5234"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller2">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -113,28 +116,28 @@
         <joint name="${link_name}_roller2_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller2"/>
-            <origin xyz="0.0215 0.03723 0" rpy="0.85 0 1.04868"/>
+            <origin xyz="0.0215 0.03723 -${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 1.04868"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller3">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -143,28 +146,28 @@
         <joint name="${link_name}_roller3_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller3"/>
-            <origin xyz="0 0.043 0" rpy="0.85 0 1.57"/>
+            <origin xyz="0 0.043 ${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 1.57"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller4">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -173,28 +176,28 @@
         <joint name="${link_name}_roller4_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller4"/>
-            <origin xyz="-0.0215 0.03723 0" rpy="0.85 0 2.0934"/>
+            <origin xyz="-0.0215 0.03723 -${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 2.0934"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller5">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -203,28 +206,28 @@
         <joint name="${link_name}_roller5_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller5"/>
-            <origin xyz="-0.03723 0.0215 0" rpy="0.85 0 2.6167"/>
+            <origin xyz="-0.03723 0.0215 ${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 2.6167"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller6">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -233,28 +236,28 @@
         <joint name="${link_name}_roller6_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller6"/>
-            <origin xyz="-0.043 0 0" rpy="0.85 0 3.14"/>
+            <origin xyz="-0.043 0 -${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 3.14"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller7">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -263,28 +266,28 @@
         <joint name="${link_name}_roller7_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller7"/>
-            <origin xyz="-0.03723 -0.0215 0" rpy="0.85 0 3.6634"/>
+            <origin xyz="-0.03723 -0.0215 ${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 3.6634"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller8">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -293,28 +296,28 @@
         <joint name="${link_name}_roller8_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller8"/>
-            <origin xyz="-0.0215 -0.03723 0" rpy="0.85 0 4.1867"/>
+            <origin xyz="-0.0215 -0.03723 -${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 4.1867"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller9">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -323,28 +326,28 @@
         <joint name="${link_name}_roller9_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller9"/>
-            <origin xyz="0 -0.043 0" rpy="0.85 0 4.71"/>
+            <origin xyz="0 -0.043 ${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 4.71"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller10">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -353,28 +356,28 @@
         <joint name="${link_name}_roller10_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller10"/>
-            <origin xyz="0.0215 -0.03723 0" rpy="0.85 0 5.234"/>
+            <origin xyz="0.0215 -0.03723 -${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 5.234"/>
             <axis xyz="0 0 1"/>
         </joint>
 
         <link name="${link_name}_roller11">
             <visual>
                 <geometry>
-                    <cylinder radius="0.007" length="0.03"/>
+                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <material name="_nfr__blue"/>
+                <material name="nfr_blue"/>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </visual>
-            <xacro:_nfr__cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
             <gazebo>
                 <material>Gazebo/Blue</material>
-                <mu>${_nfr__roller_friction_mu}</mu>
-                <mu2>${_nfr__roller_friction_mu2}</mu2>
+                <mu>${nfr_roller_friction_mu}</mu>
+                <mu2>${nfr_roller_friction_mu2}</mu2>
                 <surface>
                     <friction>
                         <ode>
-                            <mu>${_nfr__roller_friction_mu}</mu>
-                            <mu2>${_nfr__roller_friction_mu2}</mu2>
+                            <mu>${nfr_roller_friction_mu}</mu>
+                            <mu2>${nfr_roller_friction_mu2}</mu2>
                         </ode>
                     </friction>
                 </surface>
@@ -383,7 +386,7 @@
         <joint name="${link_name}_roller11_joint" type="continuous">
             <parent link="${link_name}"/>
             <child link="${link_name}_roller11"/>
-            <origin xyz="0.03723 -0.0215 0" rpy="0.85 0 5.7567"/>
+            <origin xyz="0.03723 -0.0215 ${nfr_roller_radius+nfr_roller_sep_z/2}" rpy="1.57 0 5.7567"/>
             <axis xyz="0 0 1"/>
         </joint>
 
