@@ -25,26 +25,26 @@
       <state_interface name="position"/>
     </joint>
 
-    <joint name="left_omni_joint">
+    <!-- <joint name="left_omni_joint">
       <state_interface name="velocity"/>
       <state_interface name="position"/>
-    </joint>
+    </joint> -->
 
-    <joint name="right_omni_joint">
+    <!-- <joint name="right_omni_joint">
       <state_interface name="velocity"/>
       <state_interface name="position"/>
-    </joint>
+    </joint> -->
 
-    <joint name="rear_omni_joint">
+    <!-- <joint name="rear_omni_joint">
       <state_interface name="velocity"/>
       <state_interface name="position"/>
-    </joint>
+    </joint> -->
 
   </ros2_control>
 
   <gazebo>
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-      <parameters>$(find alpay_description)/param/alpay_controllers_gazebo.yaml</parameters>
+      <parameters>$(find diffbot_description)/param/diffbot_controllers_sim.yaml</parameters>
     </plugin>
   </gazebo>
 

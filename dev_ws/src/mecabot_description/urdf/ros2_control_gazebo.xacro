@@ -44,7 +44,7 @@
 
   <gazebo>
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-      <parameters>$(find alpay_description)/param/alpay_controllers_gazebo.yaml</parameters>
+      <parameters>$(find mecanum_description)/param/alpay_controllers_gazebo.yaml</parameters>
     </plugin>
   </gazebo>
 

@@ -19,6 +19,7 @@ RUN apt-get update \
 	ros-humble-nav2-bringup \
     ros-humble-ros2-control \
 	ros-humble-ros2-controllers \
+	ros-humble-gazebo-ros2-control \
 	ros-humble-tf-transformations
 
 # Other Tools
@@ -87,8 +88,10 @@ WORKDIR /home/$USERNAME/dev_ws
 # Copy ROS packages from your local 'src' to the container
 # COPY dev_ws/src /home/$USERNAME/dev_ws/src
 
-# RUN /bin/bash -c '. /opt/ros/humble/setup.sh; colcon build'
-# RUN echo "source /home/$USERNAME/dev_ws/install/setup.bash" >> /home/$USERNAME/.bashrc
+RUN cd /home/$USERNAME/dev_ws \
+	&& source /opt/ros/humble/setup.bash \
+	&& colcon build
+RUN echo "source /home/$USERNAME/dev_ws/install/setup.bash" >> /home/$USERNAME/.bashrc
 
 RUN echo "export PATH=$PATH:/usr/local/go/bin" >> /home/$USERNAME/.bashrc
 RUN echo "export LIBCLANG_PATH=/usr/lib/llvm-12/lib" >> /home/$USERNAME/.bashrc

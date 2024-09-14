@@ -31,7 +31,7 @@
 
 
   <xacro:nfr_traction_wheel link_name="front_left_wheel" xyz="0 0 0" rpy="0 0 0"/>
-  <joint name="front_left_wheel_joint" type="continuous">
+  <joint name="left_wheel_joint" type="continuous">
     <parent link="left_structure"/>
     <child link="front_left_wheel"/>
     <origin xyz="${structure_step_width*6} ${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
@@ -39,7 +39,7 @@
   </joint>
 
   <xacro:nfr_traction_wheel link_name="front_right_wheel" xyz="0 0 0" rpy="0 0 0"/>
-  <joint name="front_right_wheel_joint" type="continuous">
+  <joint name="right_wheel_joint" type="continuous">
     <parent link="right_structure"/>
     <child link="front_right_wheel"/>
     <origin xyz="${structure_step_width*6} -${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
