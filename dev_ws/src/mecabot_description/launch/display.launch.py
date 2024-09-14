@@ -9,8 +9,8 @@ import os
 
 
 def generate_launch_description():
-    urdf_path = os.path.join(get_package_share_path("alpay_description"), "urdf", "mecabot.urdf.xacro")
-    rviz_config_file = os.path.join(get_package_share_path("alpay_description"), "rviz", "alpay_default.rviz")
+    urdf_path = os.path.join(get_package_share_path("mecabot_description"), "urdf", "mecabot.urdf.xacro")
+    rviz_config_file = os.path.join(get_package_share_path("mecabot_description"), "rviz", "alpay_default.rviz")
 
     robot_description = ParameterValue(Command(["xacro ", urdf_path]), value_type=str)
 
