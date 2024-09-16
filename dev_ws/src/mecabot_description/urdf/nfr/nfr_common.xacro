@@ -6,6 +6,16 @@
     <material name="nfr_black"> <color rgba="0 0 0 1"/> </material>
     <material name="nfr_blue"> <color rgba="0 0 0.9 1"/> </material>
 
+    <xacro:macro name="nfr_box_inertia" params="m x y z xyz rpy">
+        <inertial>
+            <origin xyz="${xyz}" rpy="${rpy}"/>
+            <mass value="${m}"/>
+            <inertia ixx="${m*(y*y+z*z)/12}" ixy="0" ixz="0"
+                      iyy="${m*(x*x+z*z)/12}" iyz="0"
+                      izz="${m*(x*x+y*y)/12}"/>
+        </inertial>
+    </xacro:macro>
+
     <xacro:macro name="nfr_u_rect_tube_inertia" params="m t x y z xyz rpy">
         <!-- profilin uzun kısmı için x ekseni kullanılıyor -->
         <!-- boş olan taraf üste (+z) bakıyor -->
@@ -22,7 +32,9 @@
     <xacro:macro name="nfr_struct_inertia" params="step xyz rpy">
         <!-- structureın uzun kısmı için x ekseni kullanılıyor -->
         <!-- boş olan taraf üste (+z) bakıyor -->
-        <xacro:nfr_u_rect_tube_inertia m="${step*0.016}" t="0.002" x="${step*0.025}" 
+        
+        <!-- şimdilik böyle yapıyorum affedin beni -->
+        <xacro:nfr_box_inertia m="${step*0.016}" x="${step*0.025}" 
                                    y="0.05" z="0.05" xyz="${xyz}" rpy="${rpy}"/>
     </xacro:macro>
 

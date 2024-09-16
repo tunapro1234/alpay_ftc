@@ -2,6 +2,16 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <xacro:macro name="nfr_struct_inertia" params="step xyz rpy">
+        <!-- structureın uzun kısmı için x ekseni kullanılıyor -->
+        <!-- boş olan taraf üste (+z) bakıyor -->
+        
+        <!-- şimdilik böyle yapıyorum affedin beni -->
+        <xacro:nfr_box_inertia m="${step*0.016}" x="${step*0.025}" 
+                                   y="0.05" z="0.05" xyz="${xyz}" rpy="${rpy}"/>
+    </xacro:macro>
+
+
     <xacro:macro name="nfr_structure" params="link_name step xyz rpy">
         <link name="${link_name}">
             <collision>
@@ -20,10 +30,10 @@
             </visual>
             
             <xacro:nfr_struct_inertia step="${step}" xyz="${xyz}" rpy="${rpy}"/>
-            <gazebo>
-                <material>Gazebo/Gray</material>
-            </gazebo>
         </link>
+        <gazebo reference="${link_name}">
+            <material>Gazebo/Gray</material>
+        </gazebo>
     </xacro:macro>
 
 </robot>

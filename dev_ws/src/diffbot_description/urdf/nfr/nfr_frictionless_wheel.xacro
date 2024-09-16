@@ -20,20 +20,20 @@
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </collision>
             <xacro:nfr_cylinder_inertia m="0.1" r="${nfr_wheel_diam/2}" l="0.0375" xyz="${xyz}" rpy="${rpy}"/>
-            <gazebo>
-                <material>Gazebo/Blue</material>
-                <mu>0.</mu>
-                <mu2>0.</mu2>
-                <surface>
-                    <friction>
-                        <ode>
-                            <mu>0.</mu>
-                            <mu2>0.</mu2>
-                        </ode>
-                    </friction>
-                </surface>
-            </gazebo>
         </link>
+        <gazebo reference="nfr_frictionless_wheel">
+            <material>Gazebo/Blue</material>
+            <mu>0.</mu>
+            <mu2>0.</mu2>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.</mu>
+                        <mu2>0.</mu2>
+                    </ode>
+                </friction>
+            </surface>
+        </gazebo>
     </xacro:macro>
 
 </robot>
