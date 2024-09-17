@@ -8,38 +8,47 @@
   <xacro:property name="structure_width" value="0.05"/>
   <xacro:property name="structure_step_width" value="0.025"/>
 
-  <xacro:nfr_structure link_name="base_structure" step="12" xyz="0 0 0" rpy="3.14 0 1.57"/>
-  <joint name="base_footprint_joint" type="fixed">
+  <!-- Drive base structures -->
+  <xacro:nfr_structure link_name="front_structure" step="12" xyz="0 0 0" rpy="3.14 0 1.57"/>
+  <joint name="front_structure_joint" type="fixed">
     <parent link="base_footprint"/>
-    <child link="base_structure"/>
-    <origin xyz="0 0 ${wheel_diameter/2}" rpy="0 0 0"/>
+    <child link="front_structure"/>
+    <origin xyz="${structure_step_width*3} 0 ${wheel_diameter/2}" rpy="0 0 0"/>
+  </joint>
+
+  <xacro:nfr_structure link_name="rear_structure" step="12" xyz="0 0 0" rpy="3.14 0 1.57"/>
+  <joint name="rear_structure_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="rear_structure"/>
+    <origin xyz="-${structure_step_width*7} 0 ${wheel_diameter/2}" rpy="0 0 0"/>
   </joint>
 
   <xacro:nfr_structure link_name="left_structure" step="16" xyz="0 0 0" rpy="3.14 0 0"/>
   <joint name="left_structure_joint" type="fixed">
-    <parent link="base_structure"/>
+    <parent link="front_structure"/>
     <child link="left_structure"/>
-    <origin xyz="0 ${structure_step_width*6+structure_width/2} 0" rpy="0 0 0"/>
+    <origin xyz="-${structure_step_width*3} ${structure_step_width*6+structure_width/2} 0" rpy="0 0 0"/>
   </joint>
   
   <xacro:nfr_structure link_name="right_structure" step="16" xyz="0 0 0" rpy="3.14 0 0"/>
   <joint name="right_structure_joint" type="fixed">
-    <parent link="base_structure"/>
+    <parent link="front_structure"/>
     <child link="right_structure"/>
-    <origin xyz="0 -${structure_step_width*6+structure_width/2} 0" rpy="0 0 0"/>
+    <origin xyz="-${structure_step_width*3} -${structure_step_width*6+structure_width/2} 0" rpy="0 0 0"/>
   </joint>
 
 
-  <xacro:nfr_traction_wheel link_name="front_left_wheel" xyz="0 0 0" rpy="0 0 0"/>
-  <joint name="left_wheel_joint" type="continuous">
+  <!-- Caution, hot wheels -->
+  <xacro:nfr_omni_wheel link_name="front_left_wheel"/>
+  <joint name="front_left_wheel_joint" type="continuous">
     <parent link="left_structure"/>
     <child link="front_left_wheel"/>
     <origin xyz="${structure_step_width*6} ${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
-  <xacro:nfr_traction_wheel link_name="front_right_wheel" xyz="0 0 0" rpy="0 0 0"/>
-  <joint name="right_wheel_joint" type="continuous">
+  <xacro:nfr_omni_wheel link_name="front_right_wheel"/>
+  <joint name="front_right_wheel_joint" type="continuous">
     <parent link="right_structure"/>
     <child link="front_right_wheel"/>
     <origin xyz="${structure_step_width*6} -${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
@@ -47,19 +56,121 @@
   </joint>
 
 
-  <xacro:nfr_omni_wheel link_name="rear_left_wheel" xyz="0 0 0" rpy="0 0 0"/>
+  <xacro:nfr_traction_wheel link_name="left_wheel"/>
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="left_structure"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 ${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <xacro:nfr_traction_wheel link_name="right_wheel"/>
+  <joint name="right_wheel_joint" type="continuous">
+    <parent link="right_structure"/>
+    <child link="right_wheel"/>
+    <origin xyz="0 -${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+
+  <xacro:nfr_omni_wheel link_name="rear_left_wheel"/>
   <joint name="rear_left_wheel_joint" type="fixed">
     <parent link="left_structure"/>
     <child link="rear_left_wheel"/>
     <origin xyz="-${structure_step_width*6} ${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
   </joint>
 
-  <xacro:nfr_omni_wheel link_name="rear_right_wheel" xyz="0 0 0" rpy="0 0 0"/>
+  <xacro:nfr_omni_wheel link_name="rear_right_wheel"/>
   <joint name="rear_right_wheel_joint" type="fixed">
     <parent link="right_structure"/>
     <child link="rear_right_wheel"/>
     <origin xyz="-${structure_step_width*6} -${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
   </joint>
+
+  <!-- electronics -->
+  <link name="electronics_base">
+      <visual>
+          <geometry>
+              <box size="${structure_step_width*10} ${structure_step_width*12} 0.004"/>
+          </geometry>
+          <material name="white"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+      <!-- <collision>
+          <geometry>
+              <box size="${structure_step_width*10} ${structure_step_width*12} 0.004"/>
+          </geometry>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </collision> -->
+      <xacro:box_inertia m="0.2" x="${structure_step_width*10}" y="${structure_step_width*12}" z="0.004" xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+  <gazebo reference="electronics_base">
+      <material>Gazebo/White</material>
+  </gazebo>
+  <joint name="electronics_base_joint" type="fixed">
+    <parent link="front_structure"/>
+    <child link="electronics_base"/>
+    <origin xyz="-${structure_step_width*5} 0 -${structure_step_width+0.004}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="battery">
+      <visual>
+          <geometry>
+              <box size="0.1135 0.0905 0.023"/>
+          </geometry>
+          <material name="black"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+      <!-- <collision>
+          <geometry>
+              <box size="0.1135 0.0905 0.023"/>
+          </geometry>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </collision> -->
+      <xacro:box_inertia m="0.567" x="0.1135" y="0.0905" z="0.023" xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+  <gazebo reference="battery">
+      <material>Gazebo/Black</material>
+  </gazebo>
+  <joint name="battery_joint" type="fixed">
+    <parent link="electronics_base"/>
+    <child link="battery"/>
+    <origin xyz="0 0.08475 ${0.004+0.00115}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="control_hub">
+      <visual>
+          <geometry>
+              <box size="0.143 0.103 0.0295"/>
+          </geometry>
+          <material name="black"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+      <!-- <collision>
+          <geometry>
+              <box size="0.143 0.103 0.0295"/>
+          </geometry>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </collision> -->
+      <xacro:box_inertia m="0.209" x="0.143" y="0.103" z="0.0295" xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+  <gazebo reference="control_hub">
+      <material>Gazebo/Black</material>
+  </gazebo>
+  <joint name="control_hub_joint" type="fixed">
+    <parent link="electronics_base"/>
+    <child link="control_hub"/>
+    <origin xyz="0 -0.0785 ${0.004+0.01475}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- odom pod omni wheels -->
+
+
+
+
+
+
+
 
 
 </robot>
