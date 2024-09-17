@@ -6,25 +6,25 @@
     <xacro:property name="nfr_roller_friction_mu2" value="1"/>
     <xacro:property name="nfr_roller_radius" value="0.007"/>
     <xacro:property name="nfr_roller_sep_z" value="0.002"/>
-    <xacro:property name="nfr_roller_len" value="0.03"/>
+    <xacro:property name="nfr_roller_len" value="0.026"/>
 
-    <xacro:macro name="nfr_omni_wheel" params="link_name xyz rpy">
+    <xacro:macro name="nfr_omni_wheel" params="link_name">
         <link name="${link_name}">
             <visual>
                 <geometry>
                     <cylinder radius="0.035" length="0.03"/>
                 </geometry>
                 <material name="nfr_black"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
-            <!-- not necessary, we are sorrounded by rollers anyway -->
+            <!-- not necessary since we are sorrounded by rollers anyway -->
             <!-- <collision>
                 <geometry>
                     <cylinder radius="0.035" length="0.0375"/>
                 </geometry>
                 <origin xyz="${xyz}" rpy="${rpy}"/>
             </collision> -->
-            <xacro:nfr_cylinder_inertia m="0.180" r="0.042" l="0.0375" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.180" r="0.042" l="0.0375" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}">
             <material>Gazebo/Black</material>
@@ -36,17 +36,17 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
-        <gazebo name="${link_name}_roller0">
+        <gazebo reference="${link_name}_roller0">
             <material>Gazebo/Blue</material>
             <mu>${nfr_roller_friction_mu}</mu>
             <mu2>${nfr_roller_friction_mu2}</mu2>
@@ -72,15 +72,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller1">
             <material>Gazebo/Blue</material>
@@ -108,15 +108,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller2">
             <material>Gazebo/Blue</material>
@@ -144,15 +144,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller3">
             <material>Gazebo/Blue</material>
@@ -180,15 +180,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller4">
             <material>Gazebo/Blue</material>
@@ -216,15 +216,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller5">
             <material>Gazebo/Blue</material>
@@ -252,15 +252,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller6">
             <material>Gazebo/Blue</material>
@@ -288,15 +288,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller7">
             <material>Gazebo/Blue</material>
@@ -324,15 +324,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller8">
             <material>Gazebo/Blue</material>
@@ -360,15 +360,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller9">
             <material>Gazebo/Blue</material>
@@ -396,15 +396,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller10">
             <material>Gazebo/Blue</material>
@@ -432,15 +432,15 @@
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_roller_radius}" l="${nfr_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller11">
             <material>Gazebo/Blue</material>
