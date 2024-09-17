@@ -4,24 +4,24 @@
     
     <xacro:property name="nfr_wheel_diam" value="0.1"/>
 
-    <xacro:macro name="nfr_frictionless_wheel" params="link_name xyz rpy">
+    <xacro:macro name="nfr_frictionless_wheel" params="link_name">
         <link name="${link_name}">
             <visual>
                 <geometry>
                     <cylinder radius="${nfr_wheel_diam/2}" length="0.0375"/>
                 </geometry>
                 <material name="nfr_blue"/>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder radius="${nfr_wheel_diam/2}" length="0.0375"/>
                 </geometry>
-                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
-            <xacro:nfr_cylinder_inertia m="0.1" r="${nfr_wheel_diam/2}" l="0.0375" xyz="${xyz}" rpy="${rpy}"/>
+            <xacro:nfr_cylinder_inertia m="0.1" r="${nfr_wheel_diam/2}" l="0.0375" xyz="0 0 0" rpy="0 0 0"/>
         </link>
-        <gazebo reference="nfr_frictionless_wheel">
+        <gazebo reference="${link_name}">
             <material>Gazebo/Blue</material>
             <mu>0.</mu>
             <mu2>0.</mu2>
