@@ -29,15 +29,6 @@
         </inertial>
     </xacro:macro>
 
-    <xacro:macro name="nfr_struct_inertia" params="step xyz rpy">
-        <!-- structureın uzun kısmı için x ekseni kullanılıyor -->
-        <!-- boş olan taraf üste (+z) bakıyor -->
-        
-        <!-- şimdilik böyle yapıyorum affedin beni -->
-        <xacro:nfr_box_inertia m="${step*0.016}" x="${step*0.025}" 
-                                   y="0.05" z="0.05" xyz="${xyz}" rpy="${rpy}"/>
-    </xacro:macro>
-
     <xacro:macro name="nfr_cylinder_inertia" params="m r l xyz rpy">
         <inertial>
             <origin xyz="${xyz}" rpy="${rpy}"/>
