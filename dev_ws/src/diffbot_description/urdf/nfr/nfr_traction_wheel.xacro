@@ -2,8 +2,8 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:property name="nfr_trac_fric_mu" value="1"/>
-    <xacro:property name="nfr_trac_fric_mu2" value="1"/>
+    <xacro:property name="nfr_trac_fric_mu" value="100"/>
+    <xacro:property name="nfr_trac_fric_mu2" value="100"/>
     <xacro:property name="nfr_wheel_diam" value="0.1"/>
 
     <xacro:macro name="nfr_traction_wheel" params="link_name">
@@ -11,13 +11,15 @@
             <visual>
                 <geometry>
                     <cylinder radius="${nfr_wheel_diam/2}" length="0.0375"/>
+                    <!-- <sphere radius="${nfr_wheel_diam/2}"/> -->
                 </geometry>
                 <material name="nfr_gray"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_wheel_diam/2}" length="0.0375"/>
+                    <!-- <cylinder radius="${nfr_wheel_diam/2}" length="0.0375"/> -->
+                    <sphere radius="${nfr_wheel_diam/2}"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -27,6 +29,9 @@
             <material>Gazebo/Gray</material>
             <mu>${nfr_trac_fric_mu}</mu>
             <mu2>${nfr_trac_fric_mu2}</mu2>
+            <minDepth>0.00001</minDepth>
+            <kp>100000000</kp>
+            <kd>1</kd>
             <surface>
                 <friction>
                     <ode>

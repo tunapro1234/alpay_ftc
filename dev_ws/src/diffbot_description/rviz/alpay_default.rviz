@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /TF1
+        - /TF1/Frames1
         - /RobotModel1
       Splitter Ratio: 0.7352941036224365
     Tree Height: 692
@@ -56,7 +57,11 @@ Visualization Manager:
         All Enabled: false
         base_footprint:
           Value: true
-        base_structure:
+        battery:
+          Value: true
+        control_hub:
+          Value: true
+        electronics_base:
           Value: true
         front_left_wheel:
           Value: true
@@ -110,6 +115,36 @@ Visualization Manager:
           Value: false
         front_right_wheel_roller9:
           Value: false
+        front_structure:
+          Value: true
+        left_odom:
+          Value: false
+        left_odom_mini_omni:
+          Value: false
+        left_odom_mini_omni_roller0:
+          Value: false
+        left_odom_mini_omni_roller1:
+          Value: false
+        left_odom_mini_omni_roller10:
+          Value: false
+        left_odom_mini_omni_roller11:
+          Value: false
+        left_odom_mini_omni_roller2:
+          Value: false
+        left_odom_mini_omni_roller3:
+          Value: false
+        left_odom_mini_omni_roller4:
+          Value: false
+        left_odom_mini_omni_roller5:
+          Value: false
+        left_odom_mini_omni_roller6:
+          Value: false
+        left_odom_mini_omni_roller7:
+          Value: false
+        left_odom_mini_omni_roller8:
+          Value: false
+        left_odom_mini_omni_roller9:
+          Value: false
         left_structure:
           Value: true
         left_wheel:
@@ -140,6 +175,36 @@ Visualization Manager:
           Value: false
         rear_left_wheel_roller9:
           Value: false
+        rear_odom:
+          Value: false
+        rear_odom_base:
+          Value: false
+        rear_odom_mini_omni:
+          Value: false
+        rear_odom_mini_omni_roller0:
+          Value: false
+        rear_odom_mini_omni_roller1:
+          Value: false
+        rear_odom_mini_omni_roller10:
+          Value: false
+        rear_odom_mini_omni_roller11:
+          Value: false
+        rear_odom_mini_omni_roller2:
+          Value: false
+        rear_odom_mini_omni_roller3:
+          Value: false
+        rear_odom_mini_omni_roller4:
+          Value: false
+        rear_odom_mini_omni_roller5:
+          Value: false
+        rear_odom_mini_omni_roller6:
+          Value: false
+        rear_odom_mini_omni_roller7:
+          Value: false
+        rear_odom_mini_omni_roller8:
+          Value: false
+        rear_odom_mini_omni_roller9:
+          Value: false
         rear_right_wheel:
           Value: true
         rear_right_wheel_roller0:
@@ -166,6 +231,36 @@ Visualization Manager:
           Value: false
         rear_right_wheel_roller9:
           Value: false
+        rear_structure:
+          Value: true
+        right_odom:
+          Value: false
+        right_odom_mini_omni:
+          Value: false
+        right_odom_mini_omni_roller0:
+          Value: false
+        right_odom_mini_omni_roller1:
+          Value: false
+        right_odom_mini_omni_roller10:
+          Value: false
+        right_odom_mini_omni_roller11:
+          Value: false
+        right_odom_mini_omni_roller2:
+          Value: false
+        right_odom_mini_omni_roller3:
+          Value: false
+        right_odom_mini_omni_roller4:
+          Value: false
+        right_odom_mini_omni_roller5:
+          Value: false
+        right_odom_mini_omni_roller6:
+          Value: false
+        right_odom_mini_omni_roller7:
+          Value: false
+        right_odom_mini_omni_roller8:
+          Value: false
+        right_odom_mini_omni_roller9:
+          Value: false
         right_structure:
           Value: true
         right_wheel:
@@ -177,7 +272,38 @@ Visualization Manager:
       Show Names: false
       Tree:
         base_footprint:
-          base_structure:
+          front_structure:
+            electronics_base:
+              battery:
+                {}
+              control_hub:
+                {}
+            left_odom:
+              left_odom_mini_omni:
+                left_odom_mini_omni_roller0:
+                  {}
+                left_odom_mini_omni_roller1:
+                  {}
+                left_odom_mini_omni_roller10:
+                  {}
+                left_odom_mini_omni_roller11:
+                  {}
+                left_odom_mini_omni_roller2:
+                  {}
+                left_odom_mini_omni_roller3:
+                  {}
+                left_odom_mini_omni_roller4:
+                  {}
+                left_odom_mini_omni_roller5:
+                  {}
+                left_odom_mini_omni_roller6:
+                  {}
+                left_odom_mini_omni_roller7:
+                  {}
+                left_odom_mini_omni_roller8:
+                  {}
+                left_odom_mini_omni_roller9:
+                  {}
             left_structure:
               front_left_wheel:
                 front_left_wheel_roller0:
@@ -230,6 +356,59 @@ Visualization Manager:
                 rear_left_wheel_roller8:
                   {}
                 rear_left_wheel_roller9:
+                  {}
+            rear_odom_base:
+              rear_odom:
+                rear_odom_mini_omni:
+                  rear_odom_mini_omni_roller0:
+                    {}
+                  rear_odom_mini_omni_roller1:
+                    {}
+                  rear_odom_mini_omni_roller10:
+                    {}
+                  rear_odom_mini_omni_roller11:
+                    {}
+                  rear_odom_mini_omni_roller2:
+                    {}
+                  rear_odom_mini_omni_roller3:
+                    {}
+                  rear_odom_mini_omni_roller4:
+                    {}
+                  rear_odom_mini_omni_roller5:
+                    {}
+                  rear_odom_mini_omni_roller6:
+                    {}
+                  rear_odom_mini_omni_roller7:
+                    {}
+                  rear_odom_mini_omni_roller8:
+                    {}
+                  rear_odom_mini_omni_roller9:
+                    {}
+            right_odom:
+              right_odom_mini_omni:
+                right_odom_mini_omni_roller0:
+                  {}
+                right_odom_mini_omni_roller1:
+                  {}
+                right_odom_mini_omni_roller10:
+                  {}
+                right_odom_mini_omni_roller11:
+                  {}
+                right_odom_mini_omni_roller2:
+                  {}
+                right_odom_mini_omni_roller3:
+                  {}
+                right_odom_mini_omni_roller4:
+                  {}
+                right_odom_mini_omni_roller5:
+                  {}
+                right_odom_mini_omni_roller6:
+                  {}
+                right_odom_mini_omni_roller7:
+                  {}
+                right_odom_mini_omni_roller8:
+                  {}
+                right_odom_mini_omni_roller9:
                   {}
             right_structure:
               front_right_wheel:
@@ -284,6 +463,8 @@ Visualization Manager:
                   {}
               right_wheel:
                 {}
+          rear_structure:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -308,7 +489,17 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        base_structure:
+        battery:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        control_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        electronics_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -443,6 +634,81 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        front_structure:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller10:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller11:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_odom_mini_omni_roller9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_structure:
           Alpha: 1
           Show Axes: false
@@ -518,6 +784,81 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        rear_odom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller10:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller11:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_odom_mini_omni_roller9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         rear_right_wheel:
           Alpha: 1
           Show Axes: false
@@ -579,6 +920,81 @@ Visualization Manager:
           Show Trail: false
           Value: true
         rear_right_wheel_roller9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_structure:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller10:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller11:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_odom_mini_omni_roller9:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -647,25 +1063,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.7546664476394653
+      Distance: 1.163651466369629
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.028902757912874222
-        Y: -0.13054083287715912
-        Z: 0.3705598711967468
+        X: 0.17041386663913727
+        Y: -0.33989638090133667
+        Z: 0.4060347080230713
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7697973251342773
+      Pitch: 0.8297973871231079
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.8454108238220215
+      Yaw: 5.145406723022461
     Saved: ~
 Window Geometry:
   Displays:
@@ -684,4 +1100,4 @@ Window Geometry:
     collapsed: true
   Width: 1220
   X: 274
-  Y: 19
+  Y: 21

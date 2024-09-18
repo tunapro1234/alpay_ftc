@@ -5,6 +5,7 @@
     <material name="nfr_gray"> <color rgba="0.4 0.4 0.4 1"/> </material>
     <material name="nfr_black"> <color rgba="0 0 0 1"/> </material>
     <material name="nfr_blue"> <color rgba="0 0 0.9 1"/> </material>
+    <material name="nfr_white"> <color rgba="1 1 1 1"/> </material>
 
     <xacro:macro name="nfr_box_inertia" params="m x y z xyz rpy">
         <inertial>

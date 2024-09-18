@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- this will be improved based on the real design. -->
+    <!-- as of now, this is a simple box with a mini omni wheel attached to it. -->
+    <xacro:macro name="nfr_odometry_pod" params="link_name">
+        <link name="${link_name}">
+            <visual>
+                <geometry>
+                    <box size="0.011 0.043 0.043"/>
+                </geometry>
+                <material name="nfr_gray"/>
+                <origin xyz="0.0055 0 0" rpy="0 0 0"/>
+            </visual>
+            <!-- not necessary since we are sorrounded by rollers anyway -->
+            <!-- <collision>
+                <geometry>
+                    <box size="0.011 0.043 0.043"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision> -->
+            <xacro:nfr_box_inertia m="0.084" x="0.011" y="0.043" z="0.043" xyz="0 0 0" rpy="0 0 0"/>
+        </link>
+        <gazebo reference="${link_name}">
+            <material>Gazebo/Gray</material>
+        </gazebo>
+
+        <link name="${link_name}_spring"/>
+        <joint name="${link_name}_spring_joint" type="prismatic">
+            <parent link="${link_name}"/>
+            <child link="${link_name}_spring"/>
+            <origin xyz="0.04 0 ${-0.02-0.0205}" rpy="1.57 0 0"/>
+            <axis xyz="0 1 0"/>
+            <!-- max 20mm -->
+            <limit lower="0" upper="0.02" effort="1" velocity="1.0"/>
+            <!-- bu ne bilmiyorum -->
+            <dynamics damping="0.5" friction="0.0"/>
+            <!-- yay sertliği değiştirilebilir -->
+            <spring_stiffness>100</spring_stiffness>
+            <!-- yukarıdan başlat -->
+            <initial_position value="0.2"/>
+        </joint>
+
+        <xacro:nfr_mini_omni_wheel link_name="${link_name}_mini_omni"/>
+        <joint name="${link_name}_mini_omni_joint" type="continuous">
+            <parent link="${link_name}_spring"/>
+            <child link="${link_name}_mini_omni"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+
+    </xacro:macro>
+
+</robot>

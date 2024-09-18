@@ -7,8 +7,8 @@
         <!-- boş olan taraf üste (+z) bakıyor -->
         
         <!-- şimdilik böyle yapıyorum affedin beni -->
-        <xacro:nfr_box_inertia m="${step*0.020}" x="${step*0.025}" 
-                                   y="0.05" z="0.05" xyz="${xyz}" rpy="${rpy}"/>
+        <!-- <xacro:nfr_box_inertia m="${step*0.020}" x="${step*0.025}" y="0.05" z="0.05" xyz="${xyz}" rpy="${rpy}"/> -->
+        <xacro:nfr_box_inertia m="0.0001" x="${step*0.025}" y="0.05" z="0.05" xyz="${xyz}" rpy="${rpy}"/>
     </xacro:macro>
 
     <xacro:macro name="nfr_structure" params="link_name step xyz rpy">

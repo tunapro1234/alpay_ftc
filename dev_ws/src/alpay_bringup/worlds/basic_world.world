@@ -274,10 +274,10 @@
       <static>1</static>
     </model>
     <state world_name='default'>
-      <sim_time>58 709000000</sim_time>
-      <real_time>59 42059157</real_time>
-      <wall_time>1704278427 534119394</wall_time>
-      <iterations>58709</iterations>
+      <sim_time>1535 633000000</sim_time>
+      <real_time>44 428594822</real_time>
+      <wall_time>1726592280 929782591</wall_time>
+      <iterations>35464</iterations>
       <model name='basic_world'>
         <pose>2.59324 0.21 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -322,7 +322,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>37.1539 1.2452 36.9657 0 0.755644 3.13619</pose>
+        <pose>0.352615 -1.31886 1.90079 -0 0.951644 1.60819</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
