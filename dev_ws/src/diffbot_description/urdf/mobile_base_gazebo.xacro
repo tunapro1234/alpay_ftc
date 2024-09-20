@@ -63,7 +63,7 @@
   </joint>
 
 
-  <xacro:nfr_omni_test link_name="rear_left_wheel"/>
+  <xacro:nfr_omni_wheel link_name="rear_left_wheel"/>
   <joint name="rear_left_wheel_joint" type="continuous">
     <parent link="left_structure"/>
     <child link="rear_left_wheel"/>

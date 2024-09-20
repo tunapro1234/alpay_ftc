@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- rollerların sürtünme katsayıları -->
+    <xacro:property name="nfr_roller_friction_mu" value="1"/>
+    <xacro:property name="nfr_roller_friction_mu2" value="1"/>
+
+    <xacro:macro name="nfr_omni_roller" params="link_name roller_idx">
+        <xacro:nfr_roller 
+            mesh="omni_roller.stl"
+            link_name="${link_name}"
+            roller_angle="1.57"
+            roller_idx="${roller_idx}"
+            total_roller="12"
+            roller_dist="0.045"
+            roller_sep_z="0.008"
+            color="nfr_blue"
+            gazebo_color="Gazebo/Blue"
+        />
+    </xacro:macro>
+
+    <!-- design not completed, no mesh available -->
+    <!-- <xacro:macro name="nfr_mini_omni_roller" params="link_name roller_idx">
+        <xacro:nfr_roller 
+            mesh="omni_roller.stl"
+            link_name="${link_name}"
+            roller_angle="1.57"
+            roller_idx="${roller_idx}"
+            total_roller="12"
+            roller_dist="0.045"
+            roller_sep_z="0.008"
+            color="nfr_blue"
+            gazebo_color="Gazebo/Blue"
+        />
+    </xacro:macro> -->
+
+    <xacro:macro name="nfr_mecanum_roller_fl" params="link_name roller_idx">
+        <xacro:nfr_roller 
+            mesh="mecanum_roller.stl"
+            link_name="${link_name}"
+            roller_angle="0.85"
+            roller_idx="${roller_idx}"
+            total_roller="12"
+            roller_dist="0.045"
+            roller_sep_z="0.008"
+            color="nfr_blue"
+            gazebo_color="Gazebo/Blue"
+        />
+    </xacro:macro>
+
+    <xacro:macro name="nfr_mecanum_roller_fr" params="link_name roller_idx">
+        <xacro:nfr_roller 
+            mesh="mecanum_roller.stl"
+            link_name="${link_name}"
+            roller_angle="-0.85"
+            roller_idx="${roller_idx}"
+            total_roller="12"
+            roller_dist="0.045"
+            roller_sep_z="0.008"
+            color="nfr_blue"
+            gazebo_color="Gazebo/Blue"
+        />
+    </xacro:macro>
+
+    <xacro:macro name="nfr_roller" params="mesh link_name roller_angle roller_idx total_roller roller_dist roller_sep_z color gazebo_color">
+        <!-- link_name: ana link ismi -->
+        <!-- roller_angle: rollerların kaç derece dönük olduğu, mecanum 0.85 (45 deg), omni 1.57 (90 deg) gibi -->
+        <!-- roller_idx: rollerın kaçıncı olduğu -->
+        <!-- total_roller: toplam roller sayısı -->
+        <!-- roller_dist: rollerların merkez ile arasındaki mesafe -->
+        <!-- roller_sep_z: çift rollerlar arasındaki z eksenindeki fark -->
+
+        <link name="${link_name}_roller${roller_idx}">
+            <visual>
+                <geometry>
+                    <mesh filename="package://nfr_component_lib/meshes/${mesh}" scale="1 1 1"/>
+                </geometry>
+                <material name="${color}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://nfr_component_lib/meshes/${mesh}" scale="1 1 1"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <xacro:nfr_cylinder_inertia m="0.006" r="0.007" l="0.03" xyz="0 0 0" rpy="0 0 0"/>
+        </link>
+
+        <gazebo reference="${link_name}_roller${roller_idx}">
+            <material>${gazebo_color}</material>
+            <mu>${nfr_roller_friction_mu}</mu>
+            <mu2>${nfr_roller_friction_mu2}</mu2>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>${nfr_roller_friction_mu}</mu>
+                        <mu2>${nfr_roller_friction_mu2}</mu2>
+                    </ode>
+                </friction>
+            </surface>
+        </gazebo>
+
+        <joint name="${link_name}_roller${roller_idx}_joint" type="continuous">
+            <parent link="${link_name}"/>
+            <child link="${link_name}_roller${roller_idx}"/>
+            <origin xyz="${roller_dist*cos(pi*2/total_roller*roller_idx)} 
+                         ${roller_dist*sin(pi*2/total_roller*roller_idx)} 
+                         ${(-1 if roller_idx % 2 == 0 else 1) * roller_sep_z}" 
+                    rpy="${roller_angle} 0 ${pi*2/total_roller*roller_idx}"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+    </xacro:macro>
+        
+</robot>

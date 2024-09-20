@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="nfr_omni_wheel" params="link_name">
+        <link name="${link_name}">
+            <visual>
+                <geometry>
+                    <cylinder radius="0.035" length="0.03"/>
+                </geometry>
+                <material name="nfr_black"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </visual>
+            <!-- not necessary since we are sorrounded by rollers anyway -->
+            <!-- <collision>
+                <geometry>
+                    <cylinder radius="0.035" length="0.0375"/>
+                </geometry>
+                <origin xyz="${xyz}" rpy="${rpy}"/>
+            </collision> -->
+            <xacro:nfr_cylinder_inertia m="0.180" r="0.042" l="0.0375" xyz="0 0 0" rpy="0 0 0"/>
+        </link>
+        <gazebo reference="${link_name}">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <!-- for döngüsü sadece yeni xacro sürümlerinde varmış -->
+        <!-- <xacro:for each="i" value="${range(0, 12)}">
+            <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="${i}" total_roller_count="12"/>
+        </xacro:for> -->
+
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="0"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="1"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="2"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="3"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="4"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="5"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="6"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="7"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="8"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="9"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="10"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="11"/>
+    </xacro:macro>
+</robot>
