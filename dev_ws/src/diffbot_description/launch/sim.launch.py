@@ -56,7 +56,7 @@ def generate_launch_description():
         Node(
             package='gazebo_ros',
             executable='spawn_entity.py',
-            arguments=['-topic', robot_description_topic, '-entity', "diffbot", '-x', '0', '-y', '0', '-z', '10'],
+            arguments=['-topic', robot_description_topic, '-entity', "diffbot", '-x', '0', '-y', '0', '-z', '0.2'],
         ),
 
         # RViz

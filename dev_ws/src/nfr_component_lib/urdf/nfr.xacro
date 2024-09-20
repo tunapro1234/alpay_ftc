@@ -11,4 +11,6 @@
     <xacro:include filename="nfr_structure.xacro"/>
     <xacro:include filename="nfr_traction_wheel.xacro"/>
 
+    <xacro:include filename="nfr_omni_test.xacro"/>
+
 </robot>

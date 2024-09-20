@@ -434,12 +434,12 @@
                 <material name="nfr_white"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
-            <collision>
+            <!-- <collision>
                 <geometry>
                     <cylinder radius="${nfr_mini_roller_radius}" length="${nfr_mini_roller_len}"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
-            </collision>
+            </collision> -->
             <xacro:nfr_cylinder_inertia m="0.006" r="${nfr_mini_roller_radius}" l="${nfr_mini_roller_len}" xyz="0 0 0" rpy="0 0 0"/>
         </link>
         <gazebo reference="${link_name}_roller11">

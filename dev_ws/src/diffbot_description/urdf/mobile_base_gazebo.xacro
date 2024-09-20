@@ -42,23 +42,6 @@
   <!-- herkese dağıttığımız şase gibi yapacaktım ama omniler daha mükemmel değil o 
   yüzden sürtünmesiz teker kullandım. onda da drop center yapmam gerekiyor -->
 
-  <!-- <xacro:nfr_frictionless_wheel link_name="front_left_wheel"/>
-  <joint name="front_left_wheel_joint" type="continuous">
-    <parent link="left_structure"/>
-    <child link="front_left_wheel"/>
-    <origin xyz="${structure_step_width*6} ${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
-    <axis xyz="0 0 1"/>
-  </joint> -->
-
-  <!-- <xacro:nfr_frictionless_wheel  link_name="front_right_wheel"/>
-  <joint name="front_right_wheel_joint" type="continuous">
-    <parent link="right_structure"/>
-    <child link="front_right_wheel"/>
-    <origin xyz="${structure_step_width*6} -${structure_width/2+wheel_length/2} 0" rpy="-1.57 0 0"/>
-    <axis xyz="0 0 1"/>
-  </joint> -->
-
-
   <xacro:nfr_traction_wheel link_name="left_wheel"/>
   <joint name="left_wheel_joint" type="continuous">
     <parent link="left_structure"/>
@@ -80,7 +63,7 @@
   </joint>
 
 
-  <xacro:nfr_frictionless_wheel link_name="rear_left_wheel"/>
+  <xacro:nfr_omni_test link_name="rear_left_wheel"/>
   <joint name="rear_left_wheel_joint" type="continuous">
     <parent link="left_structure"/>
     <child link="rear_left_wheel"/>
@@ -89,7 +72,7 @@
     <limit effort="500.0" velocity="10.0" />
   </joint>
 
-  <xacro:nfr_frictionless_wheel link_name="rear_right_wheel"/>
+  <xacro:nfr_omni_wheel link_name="rear_right_wheel"/>
   <joint name="rear_right_wheel_joint" type="continuous">
     <parent link="right_structure"/>
     <child link="rear_right_wheel"/>
@@ -167,31 +150,31 @@
   <joint name="left_odom_joint" type="fixed">
     <parent link="front_structure"/>
     <child link="left_odom"/>
-    <origin xyz="${structure_step_width} ${structure_step_width*5} 0" rpy="0 0 0"/>
+    <origin xyz="${structure_step_width} ${structure_step_width*5} 0.01" rpy="0 0 0"/>
   </joint> -->
 
-  <!-- <xacro:nfr_odometry_pod link_name="right_odom"/>
+  <xacro:nfr_odometry_pod link_name="right_odom"/>
   <joint name="right_odom_joint" type="fixed">
     <parent link="front_structure"/>
     <child link="right_odom"/>
-    <origin xyz="${structure_step_width} -${structure_step_width*5} 0" rpy="0 0 0"/>
-  </joint> -->
+    <origin xyz="${structure_step_width} -${structure_step_width*5} 0.1" rpy="0 0 0"/>
+  </joint>
 
   <!-- <xacro:nfr_structure link_name="rear_odom_base" step="2" xyz="0 0 0" rpy="0 0 0"/>
   <joint name="rear_odom_base_joint" type="fixed">
     <parent link="front_structure"/>
     <child link="rear_odom_base"/>
     <origin xyz="${structure_step_width*2} ${-0.04-structure_step_width} 0" rpy="0 0 0"/>
-  </joint> -->
+  </joint>
 
-  <!-- <xacro:nfr_odometry_pod link_name="rear_odom"/>
+  <xacro:nfr_odometry_pod link_name="rear_odom"/>
   <joint name="rear_odom_joint" type="fixed">
     <parent link="rear_odom_base"/>
     <child link="rear_odom"/>
-    <origin xyz="0 ${structure_step_width} 0" rpy="0 0 1.57"/>
+    <origin xyz="0 ${structure_step_width} 0.01" rpy="0 0 1.57"/>
   </joint> -->
 
-  <!-- <link name="weight">
+  <link name="weight">
       <visual>
           <geometry>
               <box size="0.05 0.05 0.05"/>
@@ -208,7 +191,7 @@
     <parent link="front_structure"/>
     <child link="weight"/>
     <origin xyz="0 0 ${structure_step_width*2}" rpy="0 0 0"/>
-  </joint> -->
+  </joint>
 
 
 </robot>

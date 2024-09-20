@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <robot name="diffbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="nfr_component_lib_path" value="$(find nfr_component_lib)/urdf/nfr.xacro"/>
+    <xacro:include filename="${nfr_component_lib_path}"/>
 
     <xacro:include filename="common.xacro"/>
-    <xacro:include filename="nfr/nfr.xacro"/>
     <xacro:include filename="mobile_base_gazebo.xacro"/>
     <xacro:include filename="sensor_gazebo.xacro"/>
 

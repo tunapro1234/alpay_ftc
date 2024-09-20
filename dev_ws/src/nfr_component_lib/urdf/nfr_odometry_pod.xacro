@@ -26,28 +26,63 @@
             <material>Gazebo/Gray</material>
         </gazebo>
 
-        <link name="${link_name}_spring"/>
+        <link name="${link_name}_spring">
+            <visual>
+                <geometry>
+                    <box size="0.01 0.05 0.05"/>
+                </geometry>
+                <material name="nfr_black"/>
+                <origin xyz="0 0.025 0" rpy="0 0 0"/>
+            </visual>
+            <!-- <collision>
+                <geometry>
+                    <box size="0.011 0.043 0.043"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision> -->
+            <xacro:nfr_box_inertia m="0.2" x="0.01" y="0.01" z="0.01" xyz="0 0 0" rpy="0 0 0"/>
+        </link>
         <joint name="${link_name}_spring_joint" type="prismatic">
             <parent link="${link_name}"/>
+            <!-- <child link="${link_name}_mini_omni"/> -->
             <child link="${link_name}_spring"/>
             <origin xyz="0.04 0 ${-0.02-0.0205}" rpy="1.57 0 0"/>
             <axis xyz="0 1 0"/>
             <!-- max 20mm -->
-            <limit lower="0" upper="0.02" effort="1" velocity="1.0"/>
+            <limit lower="0" upper="0.02" effort="100" velocity="1"/>
             <!-- bu ne bilmiyorum -->
-            <dynamics damping="0.5" friction="0.0"/>
+            <dynamics damping="10" friction="0.1"/>
             <!-- yay sertliği değiştirilebilir -->
-            <spring_stiffness>100</spring_stiffness>
+            <spring_stiffness>10</spring_stiffness>
             <!-- yukarıdan başlat -->
-            <initial_position value="0.2"/>
+            <initial_position value="0"/>
         </joint>
 
-        <xacro:nfr_mini_omni_wheel link_name="${link_name}_mini_omni"/>
+        <!-- <xacro:nfr_mini_omni_wheel link_name="${link_name}_mini_omni"/>
         <joint name="${link_name}_mini_omni_joint" type="continuous">
             <parent link="${link_name}_spring"/>
             <child link="${link_name}_mini_omni"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
+        </joint> -->
+
+        <link name="${link_name}_test">
+            <visual>
+                <geometry>
+                    <box size="0.03 0.03 0.01"/>
+                </geometry>
+                <material name="nfr_blue"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </visual>
+            <xacro:nfr_box_inertia m="0.1" x="0.01" y="0.01" z="0.01" xyz="0 0 0" rpy="0 0 0"/>
+        </link>
+        <joint name="${link_name}_test_joint" type="continuous">
+            <parent link="${link_name}_spring"/>
+            <child link="${link_name}_test"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+
+            <dynamics friction="0.1"/>
         </joint>
 
 

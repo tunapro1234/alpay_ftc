@@ -33,14 +33,16 @@
         <link name="${link_name}_roller0">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -69,14 +71,16 @@
         <link name="${link_name}_roller1">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -105,14 +109,16 @@
         <link name="${link_name}_roller2">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -141,14 +147,16 @@
         <link name="${link_name}_roller3">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -177,14 +185,16 @@
         <link name="${link_name}_roller4">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -213,14 +223,16 @@
         <link name="${link_name}_roller5">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -249,14 +261,16 @@
         <link name="${link_name}_roller6">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -285,14 +299,16 @@
         <link name="${link_name}_roller7">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -321,14 +337,16 @@
         <link name="${link_name}_roller8">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -357,14 +375,16 @@
         <link name="${link_name}_roller9">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -393,14 +413,16 @@
         <link name="${link_name}_roller10">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
@@ -429,14 +451,16 @@
         <link name="${link_name}_roller11">
             <visual>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <material name="nfr_blue"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </visual>
             <collision>
                 <geometry>
-                    <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/>
+                    <!-- <cylinder radius="${nfr_roller_radius}" length="${nfr_roller_len}"/> -->
+                    <mesh filename="package://nfr_component_lib/meshes/mecanum_roller.stl" scale="1 1 1"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>

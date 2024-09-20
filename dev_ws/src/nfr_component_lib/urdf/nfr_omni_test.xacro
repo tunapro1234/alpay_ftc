@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- rollerlaron sürtünme değerleri -->
+    <xacro:property name="nfr_roller_friction_mu" value="1"/>
+    <xacro:property name="nfr_roller_friction_mu2" value="1"/>
+
+    <!-- rollerlar z ekseninde birbirinden farklı yüksekliklerde olacaklar -->
+    <!-- iki rollerın birbirine çarpmaması için ayrıklık değeri -->
+    <xacro:property name="nfr_roller_z" value="0.008"/>
+    <!-- toplam kaç roller var -->
+    <xacro:property name="nfr_omni_roller_count" value="12"/>
+
+    <xacro:macro name="nfr_omni_test" params="link_name">
+        <link name="${link_name}">
+            <visual>
+                <geometry>
+                    <cylinder radius="0.035" length="0.03"/>
+                </geometry>
+                <material name="nfr_black"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </visual>
+            <!-- not necessary since we are sorrounded by rollers anyway -->
+            <!-- <collision>
+                <geometry>
+                    <cylinder radius="0.035" length="0.0375"/>
+                </geometry>
+                <origin xyz="${xyz}" rpy="${rpy}"/>
+            </collision> -->
+            <xacro:nfr_cylinder_inertia m="0.180" r="0.042" l="0.0375" xyz="0 0 0" rpy="0 0 0"/>
+        </link>
+        <gazebo reference="${link_name}">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <xacro:for each="i" value="${range(0, 12)}">
+            <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="${i}" total_roller_count="12"/>
+        </xacro:for>
+
+
+
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="0" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="1" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="2" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="3" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="4" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="5" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="6" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="7" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="8" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="9" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="10" total_roller_count="12"/>
+        <xacro:nfr_omni_roller link_name="${link_name}" roller_idx="11" total_roller_count="12"/>
+
+    </xacro:macro>
+
+
+    <xacro:macro name="nfr_omni_roller" params="link_name roller_idx total_roller_count">
+        <link name="${link_name}_roller${roller_idx}">
+            <visual>
+                <geometry>
+                    <mesh filename="package://nfr_component_lib/meshes/omni_roller.stl" scale="1 1 1"/>
+                </geometry>
+                <material name="nfr_white"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://nfr_component_lib/meshes/omni_roller.stl" scale="1 1 1"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <xacro:nfr_cylinder_inertia m="0.006" r="0.007" l="0.002" xyz="0 0 0" rpy="0 0 0"/>
+        </link>
+
+        <gazebo reference="${link_name}_roller${roller_idx}">
+            <material>Gazebo/White</material>
+            <mu>${nfr_roller_friction_mu}</mu>
+            <mu2>${nfr_roller_friction_mu2}</mu2>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>${nfr_roller_friction_mu}</mu>
+                        <mu2>${nfr_roller_friction_mu2}</mu2>
+                    </ode>
+                </friction>
+            </surface>
+        </gazebo>
+
+        <joint name="${link_name}_roller${roller_idx}_joint" type="continuous">
+            <parent link="${link_name}"/>
+            <child link="${link_name}_roller${roller_idx}"/>
+            <origin xyz="${0.043*cos(pi*2/total_roller_count*roller_idx)} 
+                         ${0.043*sin(pi*2/total_roller_count*roller_idx)} 
+                         ${(-1 if roller_idx % 2 == 0 else 1) * nfr_roller_z}" 
+                    rpy="1.57 0 ${pi*2/total_roller_count*roller_idx}"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+    </xacro:macro>
+
+</robot>
